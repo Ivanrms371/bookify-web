@@ -1,6 +1,5 @@
-// src/stores/tenant-store.ts
 import { create } from 'zustand';
-import type { TenantContextData } from '@/types/tenant';
+import type { TenantContextData } from '@/shared/types/tenant';
 
 interface TenantState {
   tenant: TenantContextData | null;

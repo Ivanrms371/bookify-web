@@ -1,5 +1,5 @@
 import type { ElementType, HTMLAttributes, ReactNode } from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/shared/utils/cn';
 
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4';
 type HeadingSize = 'md' | 'lg' | 'xl' | '2xl' | 'display' | 'hero';

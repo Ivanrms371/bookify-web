@@ -1,6 +1,6 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { COUNTRIES } from '@/constants/countries';
+import { COUNTRIES } from '@/shared/constants/countries';
 
 interface PhoneCountryCodeProps {
   value: string;

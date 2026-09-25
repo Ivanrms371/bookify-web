@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/shared/utils/cn';
 import { PlusIcon } from '@heroicons/react/20/solid';
 import { Text } from '@/shared/components/typography/Text';
 
