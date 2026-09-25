@@ -1,0 +1,128 @@
+---
+import { MapPinIcon, PhoneIcon, ClockIcon } from '@heroicons/react/24/outline';
+import type { TenantPublicData } from '@/types/tenant';
+import { cn } from '@/utils/cn';
+import { Heading } from '@/shared/components/typography/Heading';
+import { Text } from '@/shared/components/typography/Text';
+import { Button } from '@/components/ui/Button';
+import { formatAddress } from '@/utils/format-address';
+
+const { tenant } = Astro.props as {
+  tenant: TenantPublicData;
+};
+
+const {
+  addressLine1,
+  addressLine2,
+  city,
+  country,
+  province,
+  phoneNumber,
+  name,
+  description,
+} = tenant;
+
+const address = formatAddress({
+  addressLine1,
+  addressLine2,
+  city,
+  country,
+  province,
+});
+
+const schedules = [
+  { day: 'Lunes', hours: '09:00 - 19:00', isClosed: false },
+  { day: 'Martes', hours: '09:00 - 19:00', isClosed: false },
+  { day: 'Miércoles', hours: '09:00 - 19:00', isClosed: false },
+  { day: 'Jueves', hours: '09:00 - 19:00', isClosed: false },
+  { day: 'Viernes', hours: '09:00 - 19:00', isClosed: false },
+  { day: 'Sábado', hours: 'Cerrado', isClosed: true },
+  { day: 'Domingo', hours: 'Cerrado', isClosed: true },
+];
+---
+
+<aside
+  class="w-full divide-y divide-gray-200 rounded-3xl border border-gray-200 bg-white shadow-lg"
+>
+  <div class="space-y-4 p-8 sm:p-10">
+    <div class="space-y-1.5">
+      <Heading as="h1" size="lg">
+        {name}
+      </Heading>
+
+      {
+        description && (
+          <Text className="line-clamp-2" variant="muted">
+            {description}
+          </Text>
+        )
+      }
+    </div>
+
+    <Button href="#servicios" variant="primary" size="lg" className="w-full">
+      Reservar ahora
+    </Button>
+  </div>
+
+  <!-- Contacto y Ubicación -->
+  <div class="space-y-4 p-8 sm:p-10">
+    {
+      address && (
+        <div class="flex items-start gap-3">
+          <MapPinIcon className="size-5 shrink-0 text-indigo-600 mt-0.5" />
+          <Text size="sm" variant="muted">
+            {address}
+          </Text>
+        </div>
+      )
+    }
+
+    {
+      phoneNumber && (
+        <a href={`tel:${phoneNumber}`} class="flex items-start gap-3">
+          <PhoneIcon className="size-5 shrink-0 text-indigo-600" />
+          <Text size="sm" variant="muted">
+            {phoneNumber}
+          </Text>
+        </a>
+      )
+    }
+  </div>
+
+  <!-- Horarios de Atención -->
+  <div class="p-8 sm:p-10">
+    <Text
+      as="div"
+      size="base"
+      variant="default"
+      weight="medium"
+      className="mb-2 flex items-center gap-2"
+    >
+      <ClockIcon className="size-5 text-indigo-600" />
+      Horarios de atención
+    </Text>
+
+    <ul class="space-y-3.5 pt-2">
+      {
+        schedules.map(({ day, hours, isClosed }) => (
+          <li class="flex items-center justify-between text-xs sm:text-sm">
+            <Text as="span" size="sm" variant="default">
+              {day}
+            </Text>
+            <Text
+              as="span"
+              size="sm"
+              variant="muted"
+              className={cn(
+                'text-sm text-gray-600',
+                isClosed && 'rounded-full bg-gray-100 px-2.5 py-0.5 text-xs'
+              )}
+            >
+              {hours}
+            </Text>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</aside>

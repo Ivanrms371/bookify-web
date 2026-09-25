@@ -1,0 +1,40 @@
+---
+import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import { SparklesIcon } from '@heroicons/react/24/outline';
+import { Heading } from '@/shared/components/typography/Heading';
+import { Text } from '@/shared/components/typography/Text';
+import { Button } from '@/shared/components/ui/Button';
+import Section from '../components/ui/Section.astro';
+import SectionEyebrow from '../components/ui/SectionEyebrow.astro';
+---
+
+<Section id="hero" class="pt-24" containerClass="center-content gap-6">
+  <SectionEyebrow>
+    <SparklesIcon className="size-4.5 text-indigo-600" />
+    Presentamos Bookify · Reservas simples para tu negocio
+  </SectionEyebrow>
+  <Heading as={'h1'} size="hero" className="max-w-3xl">
+    La plataforma de reservas
+    <span class="block text-indigo-600 italic">
+      para negocios que crecen.
+    </span>
+  </Heading>
+  <Text size="lead" variant="muted" className="max-w-2xl">
+    Gestiona citas, profesionales y disponibilidad en tiempo real. Automatiza
+    recordatorios por WhatsApp y dale a tus clientes una experiencia de reserva
+    rápida y sin fricciones.
+  </Text>
+
+  <Button as="a" size="lg" variant="primary" href="/register">
+    Crear cuenta gratis
+    <ArrowRightIcon className="size-5" />
+  </Button>
+
+  <div class="mt-28 w-full">
+    <img
+      src="/image.png"
+      alt="Panel de control de Bookify"
+      class="rounded-3xl border border-gray-100 shadow-2xl"
+    />
+  </div>
+</Section>

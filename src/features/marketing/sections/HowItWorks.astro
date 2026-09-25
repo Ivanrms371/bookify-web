@@ -1,0 +1,71 @@
+---
+import { Heading } from '@/shared/components/typography/Heading';
+import { Text } from '@/shared/components/typography/Text';
+import Section from '../components/ui/Section.astro';
+import SectionEyebrow from '../components/ui/SectionEyebrow.astro';
+import { PlayCircleIcon } from '@heroicons/react/24/outline';
+import { steps } from '../data/steps';
+
+
+
+---
+
+<Section id="how-it-works" class="py-32">
+  <div class="center-content gap-6">
+    <SectionEyebrow>
+      <PlayCircleIcon className="size-4.5 text-indigo-600" />
+      Cómo funciona
+    </SectionEyebrow>
+
+    <Heading className="max-w-4xl" as="h2" size="display">
+      De tu negocio a tu primera reserva en minutos.
+    </Heading>
+
+    <Text size="lg" variant="muted" className="max-w-2xl">
+      Tres pasos simples para empezar a recibir reservas online y llevar tu
+      negocio al siguiente nivel.
+    </Text>
+  </div>
+
+  <!-- Steps -->
+  <div class="relative mt-20">
+    <!-- Connecting line (desktop only) -->
+    <div
+      class="absolute top-6.5 right-0 left-0 hidden md:block"
+      aria-hidden="true"
+    >
+      <div
+        class="mx-auto h-px max-w-[calc(100%-320px)] bg-linear-to-r from-indigo-100 via-indigo-300 to-indigo-100"
+      >
+      </div>
+    </div>
+
+    <div class="relative grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-8">
+      {
+        steps.map(({ description, icon, number, title }) => {
+          const Icon = icon;
+
+          return (
+            <div class="flex flex-col items-center text-center">
+              <div class="relative z-10 mb-5 flex flex-col items-center gap-2.5">
+                <div class="flex size-12 items-center justify-center rounded-full border border-indigo-100 bg-white shadow-sm ring-4 ring-white">
+                  <Icon className="size-5 text-indigo-500" />
+                </div>
+                <span class="text-xs font-semibold tracking-widest text-indigo-400 uppercase">
+                  {number}
+                </span>
+              </div>
+
+              <Heading as={'h3'} size="lg" className="mb-2">
+                {title}
+              </Heading>
+              <Text size="base" className="mb-8 max-w-xs">
+                {description}
+              </Text>
+            </div>
+          );
+        })
+      }
+       </div>
+  </div>
+</Section>

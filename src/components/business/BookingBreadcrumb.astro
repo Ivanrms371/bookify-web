@@ -1,0 +1,53 @@
+---
+import { ChevronRightIcon } from '@heroicons/react/20/solid';
+import { cn } from '@/utils/cn';
+
+interface Props {
+  currentStep?: number;
+  class?: string;
+}
+
+const { currentStep = 1, class: className } = Astro.props;
+
+const steps = [
+  { id: 1, label: 'Servicio' },
+  { id: 2, label: 'Profesional' },
+  { id: 3, label: 'Fecha y hora' },
+  { id: 4, label: 'Confirmar' },
+];
+---
+
+<nav aria-label="Pasos de la reserva" class={cn('w-full', className)}>
+  <ol class="flex flex-wrap items-center gap-2 text-sm sm:gap-3">
+    {
+      steps.map((step, index) => {
+        const isCurrent = step.id === currentStep;
+        const isCompleted = step.id < currentStep;
+
+        return (
+          <li class="flex items-center gap-2 sm:gap-3">
+            <div
+              class={cn(
+                'flex items-center gap-2 font-medium transition-colors',
+                isCurrent && 'text-gray-800',
+                isCompleted && 'text-gray-800',
+                !isCurrent && !isCompleted && 'text-gray-400'
+              )}
+            >
+              <span>{step.label}</span>
+            </div>
+
+            {index < steps.length - 1 && (
+              <ChevronRightIcon
+                className={cn(
+                  'size-5 shrink-0 text-gray-400',
+                  isCurrent && 'text-gray-800'
+                )}
+              />
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

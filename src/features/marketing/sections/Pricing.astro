@@ -1,0 +1,27 @@
+---
+import Section from '@/components/ui/Section.astro';
+import SectionEyebrow from '@/components/ui/SectionEyebrow.astro';
+import { CreditCardIcon } from '@heroicons/react/24/outline';
+import { Pricing as PricingComponent } from '../components/PricingGrid';
+import { Heading } from '@/shared/components/typography/Heading';
+import { Text } from '@/shared/components/typography/Text';
+---
+
+<Section id="pricing">
+  <div class="center-content gap-6">
+    <SectionEyebrow>
+      <CreditCardIcon className="size-4.5 text-indigo-600" />
+      Planes y precios
+    </SectionEyebrow>
+    <Heading className="max-w-4xl" as="h2" size="display">
+      Precios claros y transparentes, sin sorpresas.
+    </Heading>
+
+    <Text size="lg" variant="muted" className="max-w-2xl">
+      Comienza gratis y escala a medida que crece tu negocio. Sin costos ocultos
+      ni comisiones por reserva.
+    </Text>
+
+    <PricingComponent client:load />
+  </div>
+</Section>

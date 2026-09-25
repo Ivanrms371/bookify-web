@@ -1,0 +1,55 @@
+---
+import BusinessLayout from '@/shared/layouts/BusinessLayout.astro';
+import { BookingWizard } from '@/features/booking';
+import { getTenantBySlug } from '@/api/tenants';
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect('/404');
+}
+
+const tenant = await getTenantBySlug(slug);
+
+if (!tenant) {
+  return Astro.redirect('/404');
+}
+
+const {
+  id,
+  name,
+  description,
+  addressLine1,
+  addressLine2,
+  city,
+  country,
+  coverUrl,
+  logoUrl,
+  phoneNumber,
+  province,
+  settings,
+} = tenant;
+---
+
+<BusinessLayout
+  title={`Reservar cita - ${name}`}
+  description={description ?? undefined}
+>
+  <BookingWizard
+    initialData={{
+      id,
+      name,
+      description,
+      addressLine1,
+      addressLine2,
+      city,
+      country,
+      coverUrl,
+      logoUrl,
+      phoneNumber,
+      province,
+      settings,
+    }}
+    client:load
+  />
+</BusinessLayout>

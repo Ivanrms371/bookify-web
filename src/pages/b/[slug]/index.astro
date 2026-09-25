@@ -1,0 +1,41 @@
+---
+import type { TenantPublicData } from '@/types/tenant';
+
+import Section from '@/components/ui/Section.astro';
+import { tenantApi } from '@/features/tenant/api/tenant-api';
+import Services from '@/features/tenant/sections/Services.astro';
+import Professionals from '@/features/tenant/sections/Professionals.astro';
+import BusinessLayout from '@/shared/layouts/BusinessLayout.astro';
+import BusinessHeader from '@/features/tenant/sections/BusinessHeader.astro';
+import BusinessInfo from '@/features/tenant/sections/BusinessInfo.astro';
+import BusinessFooter from '@/features/tenant/sections/BusinessFooter.astro';
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return new Response('No se encontró el negocio', { status: 404 });
+}
+
+const data = await tenantApi.getTenantBySlug(slug);
+
+if (!data) {
+  return new Response('No se encontró el negocio', { status: 404 });
+}
+
+---
+
+<BusinessLayout title={data.name} description={data.description ?? undefined}>
+  <Section class="py-4">
+    <BusinessHeader tenant={data} />
+  </Section>
+  <Section class="py-4" containerClass="gap-8 py-0 md:flex md:items-start">
+    <div class="flex-1 space-y-4">
+      <Services services={data.services}/>
+      <Professionals professionals={data.professionals}/>
+    </div>
+    <div class="w-114 shrink-0 md:sticky md:top-22">
+      <BusinessInfo tenant={data} />
+    </div>
+  </Section>
+  <BusinessFooter businessName={data.name} />
+</BusinessLayout>

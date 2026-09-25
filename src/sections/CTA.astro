@@ -1,0 +1,75 @@
+---
+import { Heading } from '@/shared/components/typography/Heading';
+import { Text } from '@/shared/components/typography/Text';
+import { Button } from '@/components/ui/Button';
+import Section from '@/components/ui/Section.astro';
+import { ArrowRightIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
+import { SparklesIcon } from '@heroicons/react/24/outline';
+---
+
+<Section id="cta">
+  <div
+    class="relative overflow-hidden rounded-3xl bg-gray-900 px-8 py-16 text-center text-white shadow-2xl sm:px-16 sm:py-24 lg:px-24"
+  >
+    <!-- Background glowing gradients & decorative pattern -->
+    <div
+      class="-trangray-x-1/2 pointer-events-none absolute -top-24 left-1/2 -z-0 h-96 w-96 rounded-full bg-indigo-500/25 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute right-12 -bottom-24 -z-0 h-80 w-80 rounded-full bg-indigo-600/15 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="center-content relative z-10 mx-auto max-w-3xl gap-6">
+      <!-- Eyebrow Badge -->
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wide text-indigo-300 backdrop-blur-md"
+      >
+        <SparklesIcon className="size-4 text-indigo-400" />
+        <span>Prueba gratis de 14 días</span>
+      </div>
+
+      <!-- Main Headline -->
+      <Heading as="h2" size="display" className="text-gray-100">
+        ¿Listo para empezar?
+      </Heading>
+
+      <!-- Subtitle -->
+      <Text as="p" size="lg" className="max-w-xl font-medium text-gray-400">
+        Abre tu cuenta hoy mismo y empieza a recibir reservas en minutos.
+      </Text>
+
+      <!-- CTA Action Buttons -->
+      <div class="center-content gap-4 sm:flex-row">
+        <Button
+          as="a"
+          href="/register"
+          size="lg"
+          variant="primary"
+          className="group"
+        >
+          Crear cuenta gratis
+          <ArrowRightIcon
+            className="group-hover:trangray-x-0.5 size-5 transition-transform"
+          />
+        </Button>
+
+        <Button
+          as="a"
+          href="#pricing"
+          variant="outline"
+          size="lg"
+          className="group border-gray-700 text-white hover:border-gray-600 hover:bg-gray-800/50 hover:text-white"
+        >
+          Explorar planes
+          <ArrowRightIcon
+            className="group-hover:trangray-x-0.5 size-5 -rotate-40 transition-transform"
+          />
+        </Button>
+      </div>
+    </div>
+  </div>
+</Section>
