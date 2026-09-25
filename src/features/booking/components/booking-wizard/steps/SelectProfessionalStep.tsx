@@ -1,13 +1,13 @@
 import { Heading } from '@/shared/components/typography/Heading';
 import { motion } from 'motion/react';
 import { Text } from '@/shared/components/typography/Text';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/shared/components/ui/Button';
 import { useBookingStore } from '@/features/booking/store/booking-store';
-import { useProfessionalsByService } from '@/hooks/useProfessionalsByService';
-import type { TenantProfessional } from '@/types/tenant';
 import { CheckIcon } from '@heroicons/react/20/solid';
-import { cn } from '@/utils/cn';
+import { cn } from '@/shared/utils/cn';
 import { UsersIcon } from '@heroicons/react/24/outline';
+import { useProfessionalsByService } from '@/features/professionals/api/get-professionals-by-service.api';
+import type { TenantProfessional } from '@/shared/types/tenant';
 
 export function SelectProfessionalStep() {
   const {

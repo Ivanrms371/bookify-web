@@ -1,7 +1,7 @@
 import { Text } from '@/shared/components/typography/Text';
 import { motion, AnimatePresence } from 'motion/react';
 import { useBookingStore } from '@/features/booking/store/booking-store';
-import { addMinutesToTime } from '@/utils/hours';
+import { addMinutesToTime } from '@/shared/utils/hours';
 import {
   CalendarIcon,
   ClockIcon,

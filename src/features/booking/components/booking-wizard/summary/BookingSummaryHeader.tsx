@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Heading } from '@/shared/components/typography/Heading';
 import { Text } from '@/shared/components/typography/Text';
-import { useTenantStore } from '@/store/tenant-store';
+import { useTenantStore } from '@/shared/store/tenant-store';
 import { formatAddress } from '@/features/tenant/utils/format-address';
 
 export const BookingSummaryHeader = () => {

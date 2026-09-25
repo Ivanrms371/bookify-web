@@ -1,8 +1,8 @@
 import { Heading } from '@/shared/components/typography/Heading';
 import { motion } from 'motion/react';
-import { Input } from '@/components/ui/Input';
-import { FormField } from '@/components/ui/FormField';
-import { PhoneCountryCode } from '@/components/ui/PhoneCountryCode';
+import { Input } from '@/shared/components/ui/Input';
+import { FormField } from '@/shared/components/ui/FormField';
+import { PhoneCountryCode } from '@/shared/components/ui/PhoneCountryCode';
 import { useBookingStore } from '@/features/booking/store/booking-store';
 
 export const ConfirmBookingStep = () => {

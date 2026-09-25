@@ -3,7 +3,7 @@ import type { ServicePublicData } from '../types/service-types';
 import { Text } from '@/shared/components/typography/Text';
 import { Button } from '@/shared/components/ui/Button';
 import { CheckIcon } from '@heroicons/react/20/solid';
-import { cn } from '@/utils/cn';
+import { cn } from '@/shared/utils/cn';
 
 interface Props {
   service: ServicePublicData;

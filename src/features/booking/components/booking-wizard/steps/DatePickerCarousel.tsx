@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/shared/utils/cn';
 import { Text } from '@/shared/components/typography/Text';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/shared/components/ui/Button';
 import { useBookingStore } from '@/features/booking/store/booking-store';
-import { generateDayItems, type FormattedDayItem } from '@/utils/dates';
-import { useCarouselScroll } from '@/hooks/useCarouselScroll';
-import { useProfessionalAvailabilityOverview } from '@/hooks/useProfessionalAvailabilityOverview';
-import { useTenantStore } from '@/store/tenant-store';
+import { generateDayItems, type FormattedDayItem } from '@/shared/utils/dates';
+import { useCarouselScroll } from '@/shared/hooks/useCarouselScroll';
+import { useTenantStore } from '@/shared/store/tenant-store';
+import { useProfessionalAvailabilityOverview } from '@/features/availability';
 
 const ITEM_TOTAL_WIDTH = 80;
 

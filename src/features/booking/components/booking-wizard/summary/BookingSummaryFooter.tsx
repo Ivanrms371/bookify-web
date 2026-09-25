@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/shared/components/ui/Button';
 import { ArrowRightIcon } from '@heroicons/react/16/solid';
 import { Text } from '@/shared/components/typography/Text';
 import { useBookingStore } from '@/features/booking/store/booking-store';

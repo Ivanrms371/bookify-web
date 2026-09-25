@@ -1,24 +1,19 @@
 import { Text } from '@/shared/components/typography/Text';
 import { motion } from 'motion/react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/shared/components/ui/Button';
 import { Heading } from '@/shared/components/typography/Heading';
 import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
-import { useServices } from '@/hooks/useServices';
-import { useTenantStore } from '@/store/tenant-store';
 import { useBookingStore } from '@/features/booking/store/booking-store';
-import type { TenantService } from '@/types/tenant';
 import { CheckIcon } from '@heroicons/react/20/solid';
-import { cn } from '@/utils/cn';
+import { cn } from '@/shared/utils/cn';
+import { useServices } from '@/features/services/api/get-services.api';
+import { useTenantStore } from '@/shared/store/tenant-store';
+import type { TenantService } from '@/shared/types/tenant';
 
 export function SelectServiceStep() {
   const tenant = useTenantStore((s) => s.tenant);
   const { data: services = [], isLoading } = useServices(tenant?.id);
-  const {
-    setSelectedService,
-    selectedService,
-    nextStep,
-    selectedProfessional,
-  } = useBookingStore();
+  const { setSelectedService, selectedService, nextStep } = useBookingStore();
 
   return (
     <div className="space-y-4">

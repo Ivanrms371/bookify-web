@@ -1,5 +1,4 @@
-export type * from './types/availability-types';
-export * from './api/availability-api';
-export * from './hooks/use-check-availability';
-export * from './hooks/use-professional-availability-overview';
-export * from './hooks/use-professional-availability-slots';
+export * from './api/get-professional-availability-overview.api';
+export * from './api/get-professional-availability-slots.api';
+export * from './api/check-slot-availability.api';
+export * from './types/availability-types';

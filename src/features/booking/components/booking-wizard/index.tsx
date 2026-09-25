@@ -5,7 +5,7 @@ import { SelectProfessionalStep } from './steps/SelectProfessionalStep';
 import { BookingSummary } from './summary/BookingSummary';
 import { SelectDateTimeStep } from './steps/SelectDateTimeStep';
 import { useBookingStore } from '@/features/booking/store/booking-store';
-import { useTenantStore } from '@/store/tenant-store';
+import { useTenantStore } from '@/shared/store/tenant-store';
 import type { TenantContextData } from '@/types/tenant';
 import { QueryProvider } from '@/shared/components/providers/QueryProvider';
 import { ConfirmBookingStep } from './steps/ConfirmBookingStep';

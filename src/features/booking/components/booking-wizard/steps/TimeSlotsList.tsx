@@ -1,11 +1,11 @@
 import { Text } from '@/shared/components/typography/Text';
 import { motion } from 'motion/react';
 import { useBookingStore } from '@/features/booking/store/booking-store';
-import { useTenantStore } from '@/store/tenant-store';
-import { cn } from '@/utils/cn';
+import { useTenantStore } from '@/shared/store/tenant-store';
+import { cn } from '@/shared/utils/cn';
 import { CheckIcon, ArrowRightIcon } from '@heroicons/react/20/solid';
 import { CalendarIcon } from '@heroicons/react/24/outline';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/shared/components/ui/Button';
 import { useEffect, useState } from 'react';
 import type { Slot } from '@/features/availability/types/availability-types';
 import {

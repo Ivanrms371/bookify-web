@@ -1,5 +1,5 @@
 import { CheckIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
-import { cn } from '@/utils/cn';
+import { cn } from '@/shared/utils/cn';
 import { useBookingStore } from '@/features/booking/store/booking-store';
 
 export interface BookingBreadcrumbProps {
