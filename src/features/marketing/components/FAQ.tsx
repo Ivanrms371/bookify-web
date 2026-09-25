@@ -1,4 +1,4 @@
-import { Accordion, type AccordionItem } from '@/components/ui/Accordion';
+import { Accordion, type AccordionItem } from '@/shared/components/ui/Accordion';
 
 export interface FAQItem {
   id: string;

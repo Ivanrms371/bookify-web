@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { ArrowRightIcon, CheckIcon } from '@heroicons/react/20/solid';
-import { cn } from '@/utils/cn';
-import { calculateMonthlyPrice, calculateSaving } from '@/utils/pricing';
-import { Button } from '@/components/ui/Button';
+import { cn } from '@/shared/utils/cn';
+import { calculateMonthlyPrice, calculateSaving } from '@/shared/utils/pricing';
+import { Button } from '@/shared/components/ui/Button';
 import { Heading } from '@/shared/components/typography/Heading';
 import { Text } from '@/shared/components/typography/Text';
 import {
