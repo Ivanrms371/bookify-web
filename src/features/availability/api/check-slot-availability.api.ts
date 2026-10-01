@@ -1,5 +1,5 @@
 import { api } from '@/shared/api/client';
-import { useQuery, type UseQueryResult } from '@tanstack/react-query';
+import { useMutation, type UseMutationResult } from '@tanstack/react-query';
 import type { CheckSlotAvailabilityParams, CheckSlotAvailabilityResponse } from '../types/availability-types';
 
 export const checkSlotAvailability = async ({ tenantId, professionalId, serviceId, startsAt, signal }: CheckSlotAvailabilityParams): Promise<CheckSlotAvailabilityResponse> => {
@@ -10,13 +10,9 @@ export const checkSlotAvailability = async ({ tenantId, professionalId, serviceI
   return response.data;
 };
 
-export function useCheckSlotAvailability({ tenantId, professionalId, serviceId, startsAt, enabled = true }: CheckSlotAvailabilityParams & { enabled?: boolean }): UseQueryResult<CheckSlotAvailabilityResponse, Error> {
-  const isEnabled = Boolean(tenantId && professionalId && serviceId && startsAt && enabled);
-
-  return useQuery({
-    queryKey: ['availability', 'check', tenantId, professionalId, serviceId, startsAt],
-    queryFn: ({ signal }) => checkSlotAvailability({ tenantId, professionalId, serviceId, startsAt, signal }),
-    enabled: isEnabled,
+export function useCheckSlotAvailability(): UseMutationResult<CheckSlotAvailabilityResponse, Error, CheckSlotAvailabilityParams> {
+  return useMutation({
+    mutationFn: checkSlotAvailability,
     retry: false,
   });
 }
