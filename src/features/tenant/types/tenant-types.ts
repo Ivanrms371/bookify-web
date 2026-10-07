@@ -15,6 +15,7 @@ export interface TenantPublicData {
   phoneNumber: string | null;
   logoUrl: string | null;
   coverUrl: string | null;
+  colorTheme?: string | null;
   addressLine1: string | null;
   addressLine2: string | null;
   city: string | null;

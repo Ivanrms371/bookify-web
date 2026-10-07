@@ -1,17 +1,18 @@
 ---
-import { QueryProvider } from '@/shared/components/providers/QueryProvider';
+import { getBusinessTheme } from '@/shared/utils/business-theme';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  colorTheme?: string | null;
 }
 
-const { title, description } = Astro.props;
+const { title, description, colorTheme } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="min-h-screen">
+  <main class="min-h-screen" style={getBusinessTheme(colorTheme)}>
     <slot />
   </main>
 </BaseLayout>

@@ -1,4 +1,7 @@
-import { Accordion, type AccordionItem } from '@/shared/components/ui/Accordion';
+import {
+  Accordion,
+  type AccordionItem,
+} from '@/shared/components/ui/Accordion';
 
 export interface FAQItem {
   id: string;
@@ -30,7 +33,7 @@ export const defaultFAQs: FAQItem[] = [
     id: 'team-management',
     question: '¿Puedo gestionar múltiples profesionales o sucursales?',
     answer:
-      '¡Sí! Con el plan Pro+ puedes gestionar hasta 5 profesionales, cada uno con sus propios servicios asignados, horarios de trabajo y calendarios independientes, todo coordinado desde un único panel de administración.',
+      '¡Sí! Con el plan Pro+ puedes gestionar hasta 8 profesionales, cada uno con sus propios servicios asignados, horarios de trabajo y calendarios independientes, todo coordinado desde un único panel de administración.',
   },
   {
     id: 'cancellation-plans',

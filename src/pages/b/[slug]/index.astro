@@ -23,7 +23,11 @@ if (!data) {
 }
 ---
 
-<BusinessLayout title={data.name} description={data.description ?? undefined}>
+<BusinessLayout
+  colorTheme={data.colorTheme}
+  title={data.name}
+  description={data.description ?? undefined}
+>
   <Section class="py-4">
     <BusinessHeader tenant={data} />
   </Section>
